@@ -1,0 +1,35 @@
+# Node.js Files
+.env.*
+.npm
+node_modules
+npm-debug.log
+
+# Next.js Build Output
+.next
+build
+
+# Jest
+.swc
+coverage
+junit.xml
+
+# Storybook
+.nyc_output
+storybook-static
+build-storybook.log
+
+# Build Files
+.turbo
+cache
+
+# Cache Files
+.eslintjscache
+.eslintmdcache
+.prettiercache
+.stylelintcache
+
+# TypeScript
+tsconfig.tsbuildinfo
+
+# Sentry Config File
+.sentryclirc

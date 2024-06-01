@@ -1,0 +1,22 @@
+# Website Development
+* @ehharding
+
+# Infrastructure
+.github @ehharding
+.husky @ehharding
+
+# Framework
+next.config.mjs @ehharding
+next.dynamic.mjs @ehharding
+
+# Node.js Release Blog Posts
+/pages/en/blog/announcements @ehharding
+/pages/en/blog/release @ehharding
+
+# Package Ecosystem
+package.json @ehharding
+turbo.json @ehharding
+
+# Web Infrastructure
+redirects.json @ehharding
+site.json @ehharding

@@ -1,0 +1,41 @@
+# Node.js Files
+.npm
+node_modules
+npm-debug.log
+
+# Next.js Build Output
+.next
+build
+
+# Next.js Generated Files
+public/static/documents
+
+# Jest
+.swc
+coverage
+junit.xml
+
+# Storybook
+.nyc_output
+storybook-static
+build-storybook.log
+
+# Build Files
+.turbo
+cache
+
+# Cache Files
+.eslintjscache
+.eslintmdcache
+.prettiercache
+.stylelintcache
+
+# TypeScript
+tsconfig.tsbuildinfo
+
+# Metadata Files
+CODEOWNERS
+
+# Prettier's Handlebar parser is limited and chokes on some syntax features. See
+# https://github.com/prettier/prettier/issues/11834.
+scripts/release-post/template.hbs
