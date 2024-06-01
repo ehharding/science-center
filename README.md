@@ -9,8 +9,8 @@
 </p>
 
 <p align="center">
-  <a href="https://ehharding.github.io/science-center">Science Center</a> built using Next.js with TypeScript, SCSS, and
-  MDXv3
+  <a href="https://ehharding.github.io/science-center">Science Center</a> built using Next.js with TypeScript,
+  CSS Modules/Tailwind, and MDXv3
 </p>
 
 <p align="center">

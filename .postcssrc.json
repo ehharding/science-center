@@ -1,0 +1,11 @@
+{
+  "plugins": {
+    "autoprefixer": {},
+    "postcss-calc": {},
+    "postcss-import": {},
+    "postcss-mixins": {},
+    "postcss-simple-vars": {},
+    "tailwindcss": {},
+    "tailwindcss/nesting": {}
+  }
+}

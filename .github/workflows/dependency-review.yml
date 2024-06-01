@@ -12,7 +12,7 @@ name: Review Dependencies
 
 on:
   pull_request_target:
-    branches: ["main"]
+    branches: ['main']
 
 permissions:
   contents: read

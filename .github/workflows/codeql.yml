@@ -8,15 +8,15 @@
 # Harden Security Runner Action Source Repository: https://github.com/step-security/harden-runner
 # CodeQL Action Source Repository: https://github.com/github/codeql-action
 
-name: "CodeQL"
+name: 'CodeQL'
 
 on:
   push:
-    branches: ["main"]
+    branches: ['main']
   pull_request:
-    branches: ["main"]
+    branches: ['main']
   schedule:
-    - cron: "0 0 * * 1"
+    - cron: '0 0 * * 1'
 
 permissions:
   contents: read
@@ -33,7 +33,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ["javascript", "typescript"]
+        language: ['javascript', 'typescript']
 
     steps:
       - name: Harden Runner
@@ -55,4 +55,4 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@6af2d8daa6c218cbf92b7b1324a9bd12a3556cc5 # v3.25.8
         with:
-          category: "/language:${{matrix.language}}"
+          category: '/language:${{matrix.language}}'
