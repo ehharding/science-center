@@ -17,9 +17,9 @@ Any individual is welcome to contribute to the Science Center. The repository cu
 personas:
 
 - A **Contributor** is any individual who creates an Issue/PR, comments on an Issue/PR, or contributes in some other
-way.
+  way.
 - A **Collaborator** is a Contributor with write access to the repository. See [here](#becoming-a-collaborator) on how
-to become a Collaborator.
+  to become a Collaborator.
 
 You can find more details and guides about collaborating with this repository through our
 [Collaborator Guide](./COLLABORATOR_GUIDE.md).
@@ -51,10 +51,10 @@ for guidance.
     - Comments or Authoring of Discussions
 - The nomination must have at least one existing member of the team agree with the nomination.
   - This can be done through commenting with "agreement" (showing support) or reacting to the Issue with a :+1:
-  (Thumbs-up Emoji)
+    (Thumbs-up Emoji)
 - The Issue must be open for at least 72 hours without an objection from an existing member of the team
   - The nomination cannot pass until all open objections are resolved.
-</details>
+  </details>
 
 ## Getting Started
 
@@ -62,7 +62,7 @@ The steps below will give you a general idea of how to prepare your local enviro
 for getting things done and landing your contribution.
 
 1. Click the fork button in the top right to clone the
-[Science Center Repository](https://github.com/ehharding/science-center/fork)
+   [Science Center Repository](https://github.com/ehharding/science-center/fork)
 
 2. Clone your fork using SSH, HTTPS, or GitHub CLI.
 
@@ -100,7 +100,7 @@ for getting things done and landing your contribution.
    ```
 
 7. Perform your changes. In case you're unfamiliar with the structure of this repository, we recommend a read on the
-[Collaborator Guide](./COLLABORATOR_GUIDE.md).
+   [Collaborator Guide](./COLLABORATOR_GUIDE.md).
 
 8. Perform a merge to sync your current branch with the upstream branch.
 
@@ -126,7 +126,7 @@ for getting things done and landing your contribution.
 
 > [!IMPORTANT]\
 > Before committing and opening a Pull Request, please go first through our [Commit](#commit-guidelines) and
-[Pull Request](#pull-request-policy) guidelines outlined below.
+> [Pull Request](#pull-request-policy) guidelines outlined below.
 
 11. Create a Pull Request.
 
@@ -134,7 +134,7 @@ for getting things done and landing your contribution.
 > We ask for PR authors to avoid to rebase/update their PRs with the base branch (`main`) unnecessarily.
 > We use [GitHub Merge Queues](https://github.blog/2023-07-12-github-merge-queue-is-generally-available/)
 > which means that before merge the PRs get automatically updated and checked against the latest changes on the
-base branch.
+> base branch.
 >
 > This also reduces the amount of times we need to run our CI checks, as every new push requires fresh new CI-checks.
 
@@ -166,7 +166,7 @@ described below.
 - `npx turbo storybook:build` builds Storybook as a static web application for publishing.
 - `npx turbo test` runs all tests locally.
   - `npx turbo test:unit` runs jest (unit-tests) locally.
-</details>
+  </details>
 
 ## Commit Guidelines
 
@@ -185,9 +185,9 @@ Commits should be signed. You can read more about [Commit Signing][] here.
 This project uses [Husky][] for Git pre-commit hooks.
 
 - Some JSON files are generated during Build time with empty files as placeholders. Build time happens when you run
-`npx turbo serve` or `npx turbo build`.
+  `npx turbo serve` or `npx turbo build`.
 - We don't want to commit those unnecessary changes. Since these files exist in the repository, `.gitignore` won't work
-for them. As a workaround, we have a pre-commit hook to discard those changes.
+  for them. As a workaround, we have a pre-commit hook to discard those changes.
 
 ## Pull Request Policy
 
@@ -202,30 +202,30 @@ this repository.
 
 - Pull Requests must be open for at least 48 hours (Or 72 hours if the PR was authored on the weekend).
   - Pull Requests might be immediately merged if they contain critical bug fixes, short errata (e.g., typos from
-  previous PRs), or any critical change considered a "showstopper" for the website's operation.
+    previous PRs), or any critical change considered a "showstopper" for the project's operation.
     - This kind of PR should only be done by existing Collaborators with write-access and/or signed off by
-    administrators/maintainers.
+      administrators/maintainers.
     - This rule cannot be used for updates on the `COLLABORATOR_GUIDE.md` guide, `CONTRIBUTING.md` guide, `CODEOWNERS`
-    file, GitHub Actions, or any security-impacting file or document that changes the governing policies of this
-    repository.
+      file, GitHub Actions, or any security-impacting file or document that changes the governing policies of this
+      repository.
   - Pull Requests may be "fast-tracked", meaning they can be merged before the usual 48 hours' notice if a "fast-track"
-  label is added.
+    label is added.
     - The person that is fast-tracking the PR (adding the label) must also comment on the PR that they're requesting the
-    PR to be fast-tracked
+      PR to be fast-tracked
     - The comment must mention `@ehharding` and must have at least one 👍 (or any other sort of approval reaction) if the
-    person fast-tracking the PR is the author of the PR.
+      person fast-tracking the PR is the author of the PR.
     - Fast-tracking is only allowed for small bug fixes, small feature changes, localization changes, or other
-    non-critical/highly-impacting changes not covered by the previous rule that allows PRs to be merged immediately.
+      non-critical/highly-impacting changes not covered by the previous rule that allows PRs to be merged immediately.
     - Fast-tracking cannot be used for updates on the `COLLABORATOR_GUIDE.md` guide, `CONTRIBUTING.md` guide,
-    `CODEOWNERS` file, GitHub Actions, or any security-impacting file or document that changes the governing policies of
-    this repository.
+      `CODEOWNERS` file, GitHub Actions, or any security-impacting file or document that changes the governing policies of
+      this repository.
 - There must be no objections after forty-eight (48) hours (Or seventy-two (72) hours if the PR was authored on the
-weekend).
+  weekend).
   - If there are disagreements consensus should be sought. Lack of consensus might require escalation to the Science
-  Center team maintainers.
+    Center team maintainers.
 - At least one approval is required for any PR to be merged.
 - Tests must be included in Pull Requests for new features or bug fixes. You are responsible for fixing any test(s) that
-fail(s).
+  fail(s).
 
 Each contribution is accepted only if there is no objection to it by a Collaborator. During the review, collaborators may
 request that a specific Contributor who is an expert in a particular area give an "LGTM" before the PR can be merged.
@@ -237,7 +237,7 @@ a consensus by addressing the concerns through discussion, compromise, or withdr
 
 - All required status-checks must have passed.
   - **Note:** If you're a Collaborator, remember to run the CI checks by labeling the PR with the
-  `github_actions:pull-request` label.
+    `github_actions:pull-request` label.
 - Please make sure that all discussions are resolved.
 - [`squash`][] Pull Requests made up of multiple commits.
 
@@ -246,16 +246,16 @@ a consensus by addressing the concerns through discussion, compromise, or withdr
 By contributing to this project, I certify that:
 
 - (a) The contribution was created in whole or in part by me and I have the right to submit it under the open source
-license indicated in the file; or
+  license indicated in the file; or
 - (b) The contribution is based upon previous work that, to the best of my knowledge, is covered under an appropriate
-open source license and I have the right under that license to submit that work with modifications, whether created in
-whole or in part by me, under the same open source license (unless I am permitted to submit under a different license),
-as indicated in the file; or
+  open source license and I have the right under that license to submit that work with modifications, whether created in
+  whole or in part by me, under the same open source license (unless I am permitted to submit under a different license),
+  as indicated in the file; or
 - (c) The contribution was provided directly to me by some other person who certified (a), (b) or (c) and I have not
-modified it.
+  modified it.
 - (d) I understand and agree that this project and the contribution are public and that a record of the contribution
-(including all personal information I submit with it, including my sign-off) is maintained indefinitely and may be
-redistributed consistent with this project or the open source license(s) involved.
+  (including all personal information I submit with it, including my sign-off) is maintained indefinitely and may be
+  redistributed consistent with this project or the open source license(s) involved.
 
 [`squash`]: https://help.github.com/en/articles/about-pull-request-merges#squash-and-merge-your-pull-request-commits
 [Conventional Commits]: https://www.conventionalcommits.org/

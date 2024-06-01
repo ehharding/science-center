@@ -1,0 +1,41 @@
+name: Suggest a Documentation Improvement for the Science Center Project
+description: "Do you have a suggestion to improve our documentation?"
+labels: [doc]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You have a suggestion to improve our documentation? That's awesome! Before submitting, please have a look at the
+        existing issues to see if there's already something related to your suggestion.
+  - type: textarea
+    attributes:
+      label: "Improvement Details:"
+      placeholder: |
+        1. What part of the documentation needs improvement?
+        2. Why do you think the improvement is necessary?
+        3. What specific changes do you suggest?
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: "Documentation URL:"
+      description: The URL of the documentation page you are suggesting improvements for.
+      placeholder: https://github.com/ehharding/science-center/doc
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: "Current State:"
+      description: Briefly describe the current state of the documentation.
+      placeholder: |
+        Describe what is currently documented and why it needs improvement.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "Additional Context:"
+      description: Add any other context, examples, or screenshots related to your suggestion.
+      placeholder: |
+        Any additional information that might help us understand your suggestion better.
+    validations:
+      required: false

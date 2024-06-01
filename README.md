@@ -28,10 +28,10 @@
   <br />
 </p>
 
-## What is this repo?
+## What Is This Repo?
 
 [Science Center](https://ehharding.github.io/science-center/) is a digital destination for all things science and tech.
-It is built using [Next.js](https://nextjs.org), a React Framework.
+It is built using [Next.js](https://nextjs.org), a React framework.
 
 ```bash
 npm ci
@@ -47,22 +47,19 @@ This project adopts the Science Center [Code of Conduct][].
 Any person who wants to contribute to the Science Center is welcome! Please read [Contribution Guidelines][] to
 understand better the structure of the respository.
 
-> \[!IMPORTANT]\
-> Please read our [Translation Guidelines][] before contributing to Translation and Localization of the project
-
 > \[!NOTE]\
-> We recommend a read of all Relevant Links below before doing code changes; Including Dependency changes, Content
-changes, and Code changes.
+> We recommend a read of all Relevant Links below before doing code changes; Including dependency changes, content
+> changes, and code changes.
 
 ### Deployment
 
 The project is automatically deployed to [GitHub Pages](https://pages.github.com) through its GitHub Actions
 integration when new pushes happen on the `main` branch.
 
-Details regarding the deployment are only accessible to the maintainers of the Science Center Team due to certain
+Details regarding the deployment are only accessible to the maintainers of the Science Center team due to certain
 limitations.
 
-The current integration is owned and managed by the Science Center Team.
+The current integration is owned and managed by the Science Center team.
 
 ## Relevant Links
 
@@ -72,11 +69,7 @@ The current integration is owned and managed by the Science Center Team.
 
 [Collaborator Guide][]
 
-[Content vs Code][]
-
 [Dependency Pinning][]
-
-[Translation Guidelines][]
 
 ## Thanks
 
@@ -85,7 +78,5 @@ The current integration is owned and managed by the Science Center Team.
 
 [code of conduct]: https://github.com/ehharding/science-center/blob/main/CODE_OF_CONDUCT.md
 [contribution guidelines]: https://github.com/ehharding/science-center/blob/main/CONTRIBUTING.md
-[content vs code]: https://github.com/ehharding/science-center/blob/main/CONTENT_VS_CODE.md
 [dependency pinning]: https://github.com/ehharding/science-center/blob/main/DEPENDENCY_PINNING.md
 [collaborator guide]: https://github.com/ehharding/science-center/blob/main/COLLABORATOR_GUIDE.md
-[translation guidelines]: https://github.com/ehharding/science-center/blob/main/TRANSLATION.md

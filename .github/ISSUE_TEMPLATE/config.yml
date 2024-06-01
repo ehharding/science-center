@@ -1,0 +1,14 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Bug Report
+    url: https://github.com/ehharding/science-center/issues/new?template=01-bug-report.yml
+    about: Report a bug or unexpected behavior in the project.
+  - name: Feature Request
+    url: https://github.com/ehharding/science-center/issues/new?template=02-feature-request.yml
+    about: Suggest a new feature or enhancement for the project.
+  - name: Documentation Improvement
+    url: https://github.com/ehharding/science-center/issues/new?template=03-doc-improvement.yml
+    about: Suggest an improvement to the project's documentation.
+  - name: Question
+    url: https://github.com/ehharding/science-center/discussions
+    about: Ask a question or seek help related to the project.

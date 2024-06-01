@@ -1,0 +1,18 @@
+name: Suggest a New Feature or Improvement for the Science Center Project
+description: "Do you have an idea or suggestion you want to share?"
+labels: [feature request]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You have an idea how to improve the project? That's awesome! Before submitting, please have a look at the
+        existing issues if there's already something related to your suggestion.
+  - type: textarea
+    attributes:
+      label: "Suggestion Details:"
+      placeholder: |
+        1. What is the feature you are suggesting?
+        2. Why do you think it would be beneficial to the project?
+        3. If possible, provide examples or use cases.
+    validations:
+      required: true
