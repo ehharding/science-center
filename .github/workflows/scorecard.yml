@@ -1,0 +1,69 @@
+# Open Source Security Foundation (OpenSSF) Scorecard Review Action
+#
+# This Action runs the OpenSSF Scorecard on the repository, providing insights into the security posture of the project.
+#
+# Harden Security Runner Action: https://github.com/marketplace/actions/harden-runner
+# OpenSSF Scorecard Action: https://github.com/marketplace/actions/ossf-scorecard-action
+#
+# Harden Security Runner Action Source Repository: https://github.com/step-security/harden-runner
+# OpenSSF Scorecard Repository: https://github.com/ossf/scorecard-action
+# CodeQL Action Source Repository: https://github.com/github/codeql-action
+
+name: OpenSSF Scorecard Review
+on:
+  # For branch-protection check. Only the default branch is supported. See
+  # https://github.com/ossf/scorecard/blob/main/docs/checks.md#branch-protection.
+  branch_protection_rule:
+  # To guarantee that the maintained check is occasionally updated. See
+  # https://github.com/ossf/scorecard/blob/main/docs/checks.md#maintained.
+  schedule:
+    - cron: "20 7 * * 2"
+  push:
+    branches: ["main"]
+
+permissions: read-all
+
+jobs:
+  analysis:
+    name: Scorecard Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      # Needed to upload the results to GitHub's Code Scanning Dashboard
+      security-events: write
+      # Needed to publish results and get a badge (see publish_results below)
+      id-token: write
+      contents: read
+      actions: read
+
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        with:
+          egress-policy: audit
+
+      - name: Git Checkout
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+        with:
+          persist-credentials: false
+
+      - name: Run Scorecard Analysis
+        uses: ossf/scorecard-action@dc50aa9510b46c811795eb24b2f1ba02a914e534 # v2.3.3
+        with:
+          results_file: results.sarif
+          results_format: sarif
+          publish_results: true
+
+      # Upload the results as artifacts (optional). Commenting out will disable uploads of run results in SARIF format
+      # to the repository Actions tab.
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4.3.3
+        with:
+          name: SARIF File
+          path: results.sarif
+          retention-days: 5
+
+      # Upload the results to GitHub's Code Scanning Dashboard.
+      - name: Upload Scan Results
+        uses: github/codeql-action/upload-sarif@6af2d8daa6c218cbf92b7b1324a9bd12a3556cc5 # v3.25.8
+        with:
+          sarif_file: results.sarif

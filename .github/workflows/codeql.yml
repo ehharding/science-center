@@ -1,0 +1,58 @@
+# Code Quality Analysis Action
+#
+# This Action will run a CodeQL analysis on the repository, surfacing potential security vulnerabilities in the
+# codebase.
+#
+# Harden Security Runner Action: https://github.com/marketplace/actions/harden-runner
+#
+# Harden Security Runner Action Source Repository: https://github.com/step-security/harden-runner
+# CodeQL Action Source Repository: https://github.com/github/codeql-action
+
+name: "CodeQL"
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  schedule:
+    - cron: "0 0 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["javascript", "typescript"]
+
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        with:
+          egress-policy: audit
+
+      - name: Git Checkout
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@6af2d8daa6c218cbf92b7b1324a9bd12a3556cc5 # v3.25.8
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@6af2d8daa6c218cbf92b7b1324a9bd12a3556cc5 # v3.25.8
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@6af2d8daa6c218cbf92b7b1324a9bd12a3556cc5 # v3.25.8
+        with:
+          category: "/language:${{matrix.language}}"
