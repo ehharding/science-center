@@ -22,7 +22,7 @@ personas:
   to become a Collaborator.
 
 You can find more details and guides about collaborating with this repository through our
-[Collaborator Guide](./COLLABORATOR_GUIDE.md).
+[Collaborator guide](./COLLABORATOR_GUIDE.md).
 
 ### Becoming a Collaborator
 
@@ -34,25 +34,24 @@ team members have significant knowledge about modern web technologies and web st
 Note that regular Contributors do not need to become "Collaborators" as any contribution is appreciated (even without a
 status), and a Collaborator status is a formality that comes with obligations.
 
-If you're an active Contributor seeking to become a member, we recommend you contact one of the existing team members
-for guidance.
+If you're an active Contributor seeking to become a Collaborator, we recommend you contact one of the existing team
+members for guidance.
 
 <details>
   <summary><b>What's the process for becoming a Collaborator?</b></summary>
 
 - You must be actively contributing to this repository.
 - Contributions must include significant code reviews or code contributions.
-- A nomination must be done by an existing team member of the team with an Issue
-  - The Issue must explain and describe why the nominated person is a good addition to the team
+- A nomination must be done by an existing team member of the team with an Issue.
+  - The Issue must explain and describe why the nominated person is a good addition to the team.
   - The Issue must contain links to relevant contributions through:
     - Code Reviews
     - Comments on Issues and PRs
     - Authoring of Issues or PRs
     - Comments or Authoring of Discussions
 - The nomination must have at least one existing member of the team agree with the nomination.
-  - This can be done through commenting with "agreement" (showing support) or reacting to the Issue with a :+1:
-    (Thumbs-up Emoji)
-- The Issue must be open for at least 72 hours without an objection from an existing member of the team
+  - This can be done through commenting with "agreement" (showing support) or reacting to the Issue with a 👍.
+- The Issue must be open for at least 72 hours without an objection from an existing member of the team.
   - The nomination cannot pass until all open objections are resolved.
   </details>
 
@@ -64,7 +63,7 @@ for getting things done and landing your contribution.
 1. Click the fork button in the top right to clone the
    [Science Center Repository](https://github.com/ehharding/science-center/fork)
 
-2. Clone your fork using SSH, HTTPS, or GitHub CLI.
+2. Clone your fork using SSH, HTTPS, or the GitHub CLI.
 
    ```bash
    git clone git@github.com:<YOUR_GITHUB_USERNAME>/science-center.git # SSH
@@ -72,7 +71,7 @@ for getting things done and landing your contribution.
    gh repo clone <YOUR_GITHUB_USERNAME>/science-center # GitHub CLI
    ```
 
-3. Change into the science-center directory.
+3. Change into the `science-center` directory.
 
    ```bash
    cd science-center
@@ -99,8 +98,8 @@ for getting things done and landing your contribution.
    npx turbo dev # Starts a development environment
    ```
 
-7. Perform your changes. In case you're unfamiliar with the structure of this repository, we recommend a read on the
-   [Collaborator Guide](./COLLABORATOR_GUIDE.md).
+7. Perform your changes. In case you're unfamiliar with the structure of this repository, we recommend a read of the
+   [Collaborator guide](./COLLABORATOR_GUIDE.md).
 
 8. Perform a merge to sync your current branch with the upstream branch.
 
@@ -125,18 +124,18 @@ for getting things done and landing your contribution.
     ```
 
 > [!IMPORTANT]\
-> Before committing and opening a Pull Request, please go first through our [Commit](#commit-guidelines) and
+> Before committing and opening a Pull Request, please first go through our [Commit](#commit-guidelines) and
 > [Pull Request](#pull-request-policy) guidelines outlined below.
 
 11. Create a Pull Request.
 
 > [!NOTE]\
-> We ask for PR authors to avoid to rebase/update their PRs with the base branch (`main`) unnecessarily.
+> We ask for PR authors to avoid rebaseing/updating their PRs with the base branch (`main`) unnecessarily.
 > We use [GitHub Merge Queues](https://github.blog/2023-07-12-github-merge-queue-is-generally-available/)
-> which means that before merge the PRs get automatically updated and checked against the latest changes on the
+> which means that, before merge, the PRs get automatically updated and checked against the latest changes on the
 > base branch.
 >
-> This also reduces the amount of times we need to run our CI checks, as every new push requires fresh new CI-checks.
+> This also reduces the amount of times we need to run our CI checks, as every new push requires fresh CI-checks.
 
 ### CLI Commands
 
@@ -149,7 +148,7 @@ described below.
 - `npx turbo dev` runs Next.js's Local Development Server, listening by default on `http://localhost:3000/`.
 - `npx turbo build` builds the Application in Production Mode. The output is by default within the `.next` folder.
   - This is used for the GitHub Actions Deployments (Preview & Production).
-- `npx turbo start` starts a web server running serving the built content from `npx turbo build`.
+- `npx turbo start` starts a web server running that serves the built content from `npx turbo build`.
 </details>
 
 <details>
@@ -162,41 +161,41 @@ described below.
 - `npx turbo format` formats and fixes the whole codebase.
 - `npx turbo scripts:release-post` generates a release post for the current release.
   - **Usage:** `npx turbo scripts:release-post -- --version=vXX.X.X --force`
-- `npx turbo storybook` starts Storybook's local server.
-- `npx turbo storybook:build` builds Storybook as a static web application for publishing.
+- `npx turbo storybook` starts Storybook's Local Server.
+- `npx turbo storybook:build` builds Storybook as a Static Web Application for publishing.
 - `npx turbo test` runs all tests locally.
-  - `npx turbo test:unit` runs jest (unit-tests) locally.
+  - `npx turbo test:unit` runs Jest (unit-tests) locally.
   </details>
 
 ## Commit Guidelines
 
 This project follows the [Conventional Commits][] specification.
 
-Commits should be signed. You can read more about [Commit Signing][] here.
+Commits should be signed. You can read more about [Commit signing][] here.
 
 ### Commit Message Guidelines
 
-- Commit messages must include a "type" as described on Conventional Commits.
+- Commit messages must include a "type" as described in Conventional Commits.
 - Commit messages **must** start with a capital letter.
 - Commit messages **must not** end with a period `.`.
 
-### Pre-commit Hooks
+### Pre-Commit Hooks
 
 This project uses [Husky][] for Git pre-commit hooks.
 
-- Some JSON files are generated during Build time with empty files as placeholders. Build time happens when you run
+- Some JSON files are generated during build time with empty files as placeholders. Build time happens when you run
   `npx turbo serve` or `npx turbo build`.
-- We don't want to commit those unnecessary changes. Since these files exist in the repository, `.gitignore` won't work
-  for them. As a workaround, we have a pre-commit hook to discard those changes.
+- We don't want to commit these unnecessary changes. Since these files exist in the repository, `.gitignore` won't work
+  for them. As a workaround, we have a pre-commit hook to discard these changes.
 
 ## Pull Request Policy
 
-This policy governs how contributions should land within this repository. The lines below state the checks and policies
-to be followed before merging and in the act of merging.
+This policy governs how contributions should land within the repository. The lines below state the checks and policies
+to be followed before and during the act of merging.
 
 ### Before Merging
 
-We recommend a read of our [Collaborator Guide](COLLABORATOR_GUIDE.md#accepting-modifications) for in-depth details on
+We recommend a read of our [Collaborator guide](COLLABORATOR_GUIDE.md#accepting-modifications) for in-depth details on
 how we accept contributions into this repository. The list below describes some merging and approval rules adopted in
 this repository.
 
@@ -227,8 +226,8 @@ this repository.
 - Tests must be included in Pull Requests for new features or bug fixes. You are responsible for fixing any test(s) that
   fail(s).
 
-Each contribution is accepted only if there is no objection to it by a Collaborator. During the review, collaborators may
-request that a specific Contributor who is an expert in a particular area give an "LGTM" before the PR can be merged.
+Each contribution is accepted only if there is no objection to it by a Collaborator. During the review, Collaborators may
+request that a specific Contributor who is an expert in a particular area give a "LGTM" before the PR can be merged.
 
 If an objection is raised in a Pull Request by another Collaborator, all Collaborators involved should try to arrive at
 a consensus by addressing the concerns through discussion, compromise, or withdrawal of the proposed change(s).

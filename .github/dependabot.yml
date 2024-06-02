@@ -1,71 +1,71 @@
 version: 2
 updates:
   - package-ecosystem: github-actions
-    directory: "/"
+    directory: '/'
     schedule:
       interval: monthly
     labels:
-      - "github_actions:pull-request"
+      - 'github_actions:pull-request'
     commit-message:
       prefix: meta
     open-pull-requests-limit: 10
   - package-ecosystem: npm
-    directory: "/"
+    directory: '/'
     versioning-strategy: increase
     schedule:
       interval: monthly
     labels:
-      - "github_actions:pull-request"
+      - 'github_actions:pull-request'
     commit-message:
       prefix: meta
     groups:
       lint:
         patterns:
-          - "@typescript-eslint/*"
-          - "eslint"
-          - "eslint-*"
-          - "stylelint"
-          - "stylelint-*"
+          - '@typescript-eslint/*'
+          - 'eslint'
+          - 'eslint-*'
+          - 'stylelint'
+          - 'stylelint-*'
         exclude-patterns:
-          - "eslint-plugin-storybook"
+          - 'eslint-plugin-storybook'
       storybook:
         patterns:
-          - "@storybook/*"
-          - "storybook"
-          - "eslint-plugin-storybook"
+          - '@storybook/*'
+          - 'storybook'
+          - 'eslint-plugin-storybook'
       testing:
         patterns:
-          - "@testing-library/*"
-          - "@types/testing-library*"
-          - "@types/jest"
-          - "jest"
-          - "jest-*"
+          - '@testing-library/*'
+          - '@types/testing-library*'
+          - '@types/jest'
+          - 'jest'
+          - 'jest-*'
       next-js:
         patterns:
-          - "next"
-          - "next-mdx-remote"
-          - "next-sitemap"
-          - "next-themes"
-          - "turbo"
+          - 'next'
+          - 'next-mdx-remote'
+          - 'next-sitemap'
+          - 'next-themes'
+          - 'turbo'
       mdx:
         patterns:
-          - "@mdx-js/*"
-          - "@vcarl/remark-headings"
-          - "rehype-*"
-          - "remark-*"
+          - '@mdx-js/*'
+          - '@vcarl/remark-headings'
+          - 'rehype-*'
+          - 'remark-*'
       react:
         patterns:
-          - "@types/react"
-          - "@types/react-dom"
-          - "react"
-          - "react-dom"
+          - '@types/react'
+          - '@types/react-dom'
+          - 'react'
+          - 'react-dom'
       tailwind:
         patterns:
-          - "@savvywombat/tailwindcss-grid-areas"
-          - "prettier-plugin-tailwindcss"
-          - "tailwindcss"
+          - '@savvywombat/tailwindcss-grid-areas'
+          - 'prettier-plugin-tailwindcss'
+          - 'tailwindcss'
     ignore:
       # Manually update major versions of @types/node with the version specified within .nvmrc.
-      - dependency-name: "@types/node"
-        update-types: ["version-update:semver-major"]
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']
     open-pull-requests-limit: 10

@@ -1,15 +1,23 @@
-# Open Source Security Foundation (OpenSSF) Scorecard Review Action
+# This Workflow automates the OpenSSF Scorecard review process for the project. It is triggered by:
+# - Branch protection rule events for the default branch
+# - Scheduled events (every Tuesday at 7:20 AM)
+# - Push events to the 'main' branch
 #
-# This Action runs the OpenSSF Scorecard on the repository, providing insights into the security posture of the project.
+# The Workflow consists of a single job that runs on an Ubuntu environment. Key steps include:
+# - Securing the runner environment
+# - Setting up the repository
+# - Running the OpenSSF Scorecard analysis
+# - Uploading the results to GitHub's Code Scanning Dashboard
+# - Optionally uploading the results as artifacts
 #
-# Harden Security Runner Action: https://github.com/marketplace/actions/harden-runner
-# OpenSSF Scorecard Action: https://github.com/marketplace/actions/ossf-scorecard-action
+# Permissions:
+# - Read permissions for all contents
+# - Write permissions for security events and ID token
 #
-# Harden Security Runner Action Source Repository: https://github.com/step-security/harden-runner
-# OpenSSF Scorecard Repository: https://github.com/ossf/scorecard-action
-# CodeQL Action Source Repository: https://github.com/github/codeql-action
+# The Workflow uses a set of predefined actions to perform the Scorecard analysis efficiently and securely.
 
 name: OpenSSF Scorecard Review
+
 on:
   # For branch-protection check. Only the default branch is supported. See
   # https://github.com/ossf/scorecard/blob/main/docs/checks.md#branch-protection.

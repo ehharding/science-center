@@ -1,12 +1,22 @@
-# Code Quality Analysis Action
+# This Workflow automates the CodeQL analysis process for the project. It is triggered by:
+# - Push events to the 'main' branch
+# - Pull Requests targeting the 'main' branch
+# - Scheduled events (every Monday at midnight)
 #
-# This Action will run a CodeQL analysis on the repository, surfacing potential security vulnerabilities in the
-# codebase.
+# The Workflow consists of a single job that runs on an Ubuntu environment. Key steps include:
+# - Securing the runner environment
+# - Setting up the repository
+# - Initializing CodeQL for specified languages (JavaScript and TypeScript)
+# - Performing an automated build
+# - Running the CodeQL analysis
 #
-# Harden Security Runner Action: https://github.com/marketplace/actions/harden-runner
+# Permissions:
+# - Read permissions for contents and actions
+# - Write permissions for security events
 #
-# Harden Security Runner Action Source Repository: https://github.com/step-security/harden-runner
-# CodeQL Action Source Repository: https://github.com/github/codeql-action
+# Matrix strategy is used to run the analysis on multiple languages.
+#
+# Variables and reusable configurations are set using outputs and environment variables for efficiency and consistency.
 
 name: 'CodeQL'
 

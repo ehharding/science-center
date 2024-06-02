@@ -1,12 +1,15 @@
-# Dependency Review Action
+# This Workflow automates the dependency review process for the project. It is triggered by:
+# - Pull Requests targeting the 'main' branch
 #
-# This Action will scan dependency manifest files that change as part of a Pull Request, surfacing known-vulnerable
-# versions of the packages declared or updated in the PR. Once installed, if the workflow run is marked as required, PRs
-# introducing known-vulnerable packages will be blocked from merging.
+# The Workflow consists of a single job that runs on an Ubuntu environment. Key steps include:
+# - Securing the runner environment
+# - Setting up the repository
+# - Reviewing dependencies for vulnerabilities and outdated packages
 #
-# Dependency Review Action: https://github.com/marketplace/actions/dependency-review
+# Permissions:
+# - Read permissions for contents
 #
-# Dependency Review Action Source Repository: https://github.com/actions/dependency-review-action
+# The Workflow uses a set of predefined actions to perform the dependency review efficiently and securely.
 
 name: Review Dependencies
 

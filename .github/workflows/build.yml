@@ -1,0 +1,132 @@
+# This Workflow automates the build process for the project. It is triggered by:
+# - Push events to the 'main' branch
+# - 'labeled' events on Pull Requests targeting the 'main' branch
+# - Merge group events
+#
+# The Workflow consists of a single job that runs on both Ubuntu and Windows environments. Key steps include:
+# - Securing the runner environment
+# - Setting up repository and the Node.js environment
+# - Installing npm packages
+# - Running both ISR and static builds with Next.js using Turborepo
+#
+# Note:
+# - The ISR build runs on all trigger events.
+# - The static build runs only on push and Pull Request target events.
+#
+# Permissions:
+# - Read permissions for contents and actions
+#
+# Matrix strategy is used to run the build on multiple operating systems.
+#
+# Variables and reusable configurations are set using outputs and environment variables for efficiency and consistency.
+
+name: Build
+
+on:
+  push:
+    branches: ['main']
+  pull_request_target:
+    branches: ['main']
+    types: ['labeled']
+  merge_group:
+
+defaults:
+  run:
+    # This ensures that the working directory is the root of the repository.
+    working-directory: ./
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  build:
+    # This job should run either on `merge_groups` or `push` events or on a `pull_request_target` event with a `labeled`
+    # action with a label named `github_actions:pull-request` since we want to run project builds on all these
+    # occasions. This allows us to be certain the that builds are passing.
+    if: |
+      (github.event_name == 'push' || github.event_name == 'merge_group') ||
+      (github.event_name == 'pull_request_target' && github.event.label.name == 'github_actions:pull-request')
+
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@f086349bfa2bd1361f7909c78558e816508cdc10 # v2.8.0
+        with:
+          egress-policy: audit
+
+      - name: Provide Turborepo Arguments
+        # This step is responsible for providing a reusable string that can be used within other steps and jobs that use
+        # the `turbo` cli command as a way of easily providing shared arguments to the `turbo` command.
+        id: turborepo_arguments
+        # See https://turbo.build/repo/docs/reference/command-line-reference/run#--cache-dir.
+        # See https://turbo.build/repo/docs/reference/command-line-reference/run#--force.
+        run: echo "turbo_args=--force=true --cache-dir=.turbo/cache" >> "$GITHUB_OUTPUT"
+
+      - name: Use GNU TAR Instead of BSD TAR
+        # This step ensures that we use GNU `tar`, which is more efficient for extracting caches.
+        if: matrix.os == 'windows-latest'
+        shell: cmd
+        run: echo C:\Program Files\Git\usr\bin>>"%GITHUB_PATH%"
+
+      - name: Git Checkout
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+        with:
+          # Since we checkout the HEAD of the current branch, if the Pull Request comes from a fork we want to clone the
+          # fork's repository instead of the base repository this allows us to have the correct history tree from the
+          # perspective of the Pull Request's branch. If the Workflow is running on `merge_group` or `push` events it
+          # falls back to the base repository.
+          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
+          # We checkout the branch itself instead of a specific SHA (commit) as we want to ensure that this Workflow is
+          # always running with the latest `ref` (changes) of the Pull Request's branch. If the Workflow is running on
+          # `merge_group` or `push` events it falls back to `github.ref`, which will often be `main` or the merge_group
+          # `ref`.
+          ref: ${{ github.event.pull_request.head.ref || github.ref }}
+          # We only need to fetch the last commit from the head_ref since we're not using the `--filter` operation from
+          # turborepo. We don't use the `--filter` as we always want to force builds, regardless of having changes or
+          # not. This ensures that our bundle analysis script always runs and that Next.js is building regardless of
+          # there being code changes or not.
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
+        with:
+          # We want to ensure that the Node.js version running here respects our supported versions.
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install npm Packages
+        # We want to avoid having npm run the Audit Step and Funding messages in a CI environment. We also use `npm i`
+        # instead of `npm ci` so that the `node_modules/.cache` folder doesn't get deleted. We also use `--omit=dev` to
+        # avoid installing devDependencies, as we don't need them during the build step.
+        run: npm i --no-audit --no-fund --userconfig=/dev/null --omit=dev
+
+      - name: Build Next.js (ISR)
+        # We want an ISR build in CI to ensure that regular Next.js builds work as expected. We want to enforce that the
+        # actual `turbo@latest` package is used instead of a possible hijack from the user. The
+        # `${{ steps.turborepo_arguments.outputs.turbo_args }}` is a string substitution coming from a previous step.
+        run: npx --package=turbo@latest -- turbo build ${{ steps.turborepo_arguments.outputs.turbo_args }}
+        env:
+          # We want to ensure that enough RAM is allocated to the Node.js process. This should be a last resort in case,
+          # by any chance, the build memory gets too high but, in general, this should never happen.
+          NODE_OPTIONS: '--max_old_space_size=4096'
+
+      - name: Build Next.js (Static)
+        # We only run full static builds within Pull Requests, as they're not needed on `merge_group` or `push` events.
+        if: |
+          github.event_name == 'push' || github.event_name == 'pull_request_target'
+        # We want to enforce that the actual `turbo@latest` package is used instead of a possible hijack from the user.
+        # The `${{ steps.turborepo_arguments.outputs.turbo_args }}` is a string substitution coming from a previous
+        # step.
+        run: npx --package=turbo@latest -- turbo deploy ${{ steps.turborepo_arguments.outputs.turbo_args }}
+        env:
+          # We want to ensure that enough RAM is allocated to the Node.js process. This should be a last resort in case,
+          # by any chance, the build memory gets too high but, in general, this should never happen.
+          NODE_OPTIONS: '--max_old_space_size=4096'
