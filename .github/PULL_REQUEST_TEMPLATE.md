@@ -1,6 +1,6 @@
 <!--
 Please read the [code of conduct](https://github.com/ehharding/science-center/blob/main/CODE_OF_CONDUCT.md) and the
-[contributing guidelines](https://github.com/ehharding/science-center/blob/main/CONTRIBUTING.md) before opening a Pull
+[contributing guide](https://github.com/ehharding/science-center/blob/main/CONTRIBUTING.md) before opening a Pull
 Request.
 -->
 
@@ -29,8 +29,8 @@ Please follow this checklist to ensure that you've followed all items before ope
 adding an `x` between the brackets, like this: `[x]`
 -->
 
-- [ ] I have read the [Contributing Guidelines](https://github.com/ehharding/science-center/blob/main/CONTRIBUTING.md)
-      and made commit messages that follow the guideline.
+- [ ] I have read the [contributing guide](https://github.com/ehharding/science-center/blob/main/CONTRIBUTING.md) and
+      made commit messages that follows the guide.
 - [ ] I have run `npm run format` to ensure the code follows the style guide.
 - [ ] I have run `npm run test` to check if all tests are passing.
 - [ ] I have run `npx turbo build` to check if the project builds without errors.

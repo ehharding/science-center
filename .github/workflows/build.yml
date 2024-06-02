@@ -43,7 +43,7 @@ jobs:
   build:
     # This job should run either on `merge_groups` or `push` events or on a `pull_request_target` event with a `labeled`
     # action with a label named `github_actions:pull-request` since we want to run project builds on all these
-    # occasions. This allows us to be certain the that builds are passing.
+    # occasions. This allows us to be certain that the builds are passing.
     if: |
       (github.event_name == 'push' || github.event_name == 'merge_group') ||
       (github.event_name == 'pull_request_target' && github.event.label.name == 'github_actions:pull-request')
@@ -80,7 +80,7 @@ jobs:
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
         with:
           # Since we checkout the HEAD of the current branch, if the Pull Request comes from a fork we want to clone the
-          # fork's repository instead of the base repository this allows us to have the correct history tree from the
+          # fork's repository instead of the base repository. This allows us to have the correct history tree from the
           # perspective of the Pull Request's branch. If the Workflow is running on `merge_group` or `push` events it
           # falls back to the base repository.
           repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
@@ -103,7 +103,7 @@ jobs:
           cache: 'npm'
 
       - name: Install npm Packages
-        # We want to avoid having npm run the Audit Step and Funding messages in a CI environment. We also use `npm i`
+        # We want to avoid having npm run the audit step and funding messages in a CI environment. We also use `npm i`
         # instead of `npm ci` so that the `node_modules/.cache` folder doesn't get deleted. We also use `--omit=dev` to
         # avoid installing devDependencies, as we don't need them during the build step.
         run: npm i --no-audit --no-fund --userconfig=/dev/null --omit=dev

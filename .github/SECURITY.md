@@ -34,7 +34,7 @@ Here is the security disclosure policy for Science Center:
   the severity of the bug or difficulty in applying a fix.
 
 - This process can take some time. Every effort will be made to handle the bug in as timely a manner as possible;
-  however, it's important that we follow the release process above to ensure that the disclosure is handled in a
+  However, it's important that we follow the release process above to ensure that the disclosure is handled in a
   consistent manner.
 
 ## Receiving Security Updates
