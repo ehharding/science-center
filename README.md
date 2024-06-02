@@ -44,8 +44,8 @@ npx turbo dev
 
 This project adopts the Science Center [code of conduct][].
 
-Any person who wants to contribute to the Science Center is welcome! Please read the [contribution guidelines][] to
-better understand the structure of the respository.
+Any person who wants to contribute to the Science Center is welcome! Please read the [contributor guide][] to better
+understand the structure of the repository.
 
 > \[!NOTE]\
 > We recommend a read of the Relevant Links below before attempting code changes. This includes dependency, content, and
@@ -53,8 +53,8 @@ better understand the structure of the respository.
 
 ### Deployment
 
-The project is automatically deployed to [GitHub Pages](https://pages.github.com) through its GitHub Actions
-integration when new pushes happen on the `main` branch.
+The project is automatically deployed to [GitHub Pages](https://pages.github.com) through its GitHub Actions integration
+when new pushes happen on the `main` branch.
 
 Details regarding the deployment are only accessible to the Collaborators of the Science Center team due to certain
 limitations.
@@ -65,7 +65,7 @@ The current integration is owned and managed by the Science Center team.
 
 [Code of Conduct][]
 
-[Contribution Guidelines][]
+[Contributor Guide][]
 
 [Collaborator Guide][]
 
@@ -77,6 +77,6 @@ The current integration is owned and managed by the Science Center team.
 - Thanks to [GitHub](https://github.com) for providing the infrastructure that serves and powers the Science Center.
 
 [code of conduct]: https://github.com/ehharding/science-center/blob/main/CODE_OF_CONDUCT.md
-[contribution guidelines]: https://github.com/ehharding/science-center/blob/main/CONTRIBUTING.md
-[dependency pinning]: https://github.com/ehharding/science-center/blob/main/DEPENDENCY_PINNING.md
 [collaborator guide]: https://github.com/ehharding/science-center/blob/main/COLLABORATOR_GUIDE.md
+[contributor guide]: https://github.com/ehharding/science-center/blob/main/CONTRIBUTING.md
+[dependency pinning]: https://github.com/ehharding/science-center/blob/main/DEPENDENCY_PINNING.md

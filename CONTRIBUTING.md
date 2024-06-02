@@ -1,4 +1,4 @@
-# Science Center Contributing Guide
+# Contributor Guide
 
 Thank you for your interest in contributing to the Science Center. Before you proceed, briefly go through the following:
 
