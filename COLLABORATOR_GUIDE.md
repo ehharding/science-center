@@ -11,7 +11,7 @@
 - [Creating Components](#creating-react-components)
   - [Styling a Component](#styling-a-component)
   - [Best Practices When Creating a Component](#best-practices-when-creating-a-component)
-    - [How a New Component Should Look Like When Freshly Created](#how-a-new-component-should-look-like-when-freshly-created)
+    - [How a New Component Should Look When Freshly Created](#how-a-new-component-should-look-when-freshly-created)
   - [Best Practices for Component Development in General](#best-practices-for-component-development-in-general)
 - [Unit Tests and Storybooks](#unit-tests-and-storybooks)
   - [General Guidelines for Unit Tests](#general-guidelines-for-unit-tests)
