@@ -42,21 +42,21 @@ npx turbo dev
 
 ## Contributing
 
-This project adopts the Science Center [Code of Conduct][].
+This project adopts the Science Center [code of conduct][].
 
-Any person who wants to contribute to the Science Center is welcome! Please read [Contribution Guidelines][] to
-understand better the structure of the respository.
+Any person who wants to contribute to the Science Center is welcome! Please read the [contribution guidelines][] to
+better understand the structure of the respository.
 
 > \[!NOTE]\
-> We recommend a read of all Relevant Links below before doing code changes; Including dependency changes, content
-> changes, and code changes.
+> We recommend a read of the Relevant Links below before attempting code changes. This includes dependency, content, and
+> code changes.
 
 ### Deployment
 
 The project is automatically deployed to [GitHub Pages](https://pages.github.com) through its GitHub Actions
 integration when new pushes happen on the `main` branch.
 
-Details regarding the deployment are only accessible to the maintainers of the Science Center team due to certain
+Details regarding the deployment are only accessible to the Collaborators of the Science Center team due to certain
 limitations.
 
 The current integration is owned and managed by the Science Center team.
@@ -73,7 +73,7 @@ The current integration is owned and managed by the Science Center team.
 
 ## Thanks
 
-- Thanks to all contributors and collaborators that make this project possible.
+- Thanks to all Contributors and Collaborators that make this project possible.
 - Thanks to [GitHub](https://github.com) for providing the infrastructure that serves and powers the Science Center.
 
 [code of conduct]: https://github.com/ehharding/science-center/blob/main/CODE_OF_CONDUCT.md

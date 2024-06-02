@@ -1,10 +1,10 @@
-# Next.js Files
+# Next.js files
 .next
 .swc
 .turbo
 build
 
-# Public Folder
+# Public folder
 public
 
 # Jest

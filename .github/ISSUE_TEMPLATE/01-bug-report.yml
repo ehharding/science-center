@@ -26,13 +26,13 @@ body:
     attributes:
       label: 'Browser Version:'
       description: What browser version are you using?
-      placeholder: '103.0.5060.134'
+      placeholder: '125.0.6422.142'
     validations:
       required: true
   - type: input
     attributes:
       label: 'Operating System:'
-      description: What kind of operation system are you using? (Write it in full, with version number)
+      description: What operating system are you using? (Write it in full, with version number)
       placeholder: 'Windows 11 Pro, 23H2, 22631.3672'
     validations:
       required: true

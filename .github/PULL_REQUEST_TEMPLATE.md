@@ -1,6 +1,6 @@
 <!--
-Please read the [Code of Conduct](https://github.com/ehharding/science-center/blob/main/CODE_OF_CONDUCT.md) and the
-[Contributing Guidelines](https://github.com/ehharding/science-center/blob/main/CONTRIBUTING.md) before opening a Pull
+Please read the [code of conduct](https://github.com/ehharding/science-center/blob/main/CODE_OF_CONDUCT.md) and the
+[contributing guidelines](https://github.com/ehharding/science-center/blob/main/CONTRIBUTING.md) before opening a Pull
 Request.
 -->
 

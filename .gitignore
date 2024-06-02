@@ -1,10 +1,10 @@
-# Node.js Files
+# Node.js files
 .env.*
 .npm
 node_modules
 npm-debug.log
 
-# Next.js Build Output
+# Next.js build output
 .next
 build
 
@@ -18,11 +18,11 @@ junit.xml
 storybook-static
 build-storybook.log
 
-# Build Files
+# Build files
 .turbo
 cache
 
-# Cache Files
+# Cache files
 .eslintjscache
 .eslintmdcache
 .prettiercache
@@ -31,5 +31,5 @@ cache
 # TypeScript
 tsconfig.tsbuildinfo
 
-# Sentry Config File
+# Sentry config file
 .sentryclirc

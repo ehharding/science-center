@@ -1,13 +1,13 @@
-# Node.js Files
+# Node.js files
 .npm
 node_modules
 npm-debug.log
 
-# Next.js Build Output
+# Next.js build output
 .next
 build
 
-# Next.js Generated Files
+# Next.js generated files
 public/static/documents
 
 # Jest
@@ -20,11 +20,11 @@ junit.xml
 storybook-static
 build-storybook.log
 
-# Build Files
+# Build files
 .turbo
 cache
 
-# Cache Files
+# Cache files
 .eslintjscache
 .eslintmdcache
 .prettiercache
@@ -33,7 +33,7 @@ cache
 # TypeScript
 tsconfig.tsbuildinfo
 
-# Metadata Files
+# Metadata files
 CODEOWNERS
 
 # Prettier's Handlebar parser is limited and chokes on some syntax features. See

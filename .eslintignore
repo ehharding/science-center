@@ -1,6 +1,6 @@
 node_modules
 
-# Next.js Directories
+# Next.js directories
 .next
 .swc
 .turbo
