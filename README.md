@@ -44,7 +44,7 @@ npx turbo dev
 
 This project adopts the Science Center [code of conduct][].
 
-Any person who wants to contribute to the Science Center is welcome! Please read the [contributor guide][] to better
+Any person who wants to contribute to the Science Center is welcome! Please read the [Contributor guide][] to better
 understand the structure of the repository.
 
 > \[!NOTE]\

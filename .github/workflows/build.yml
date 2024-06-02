@@ -11,7 +11,7 @@
 #
 # Note:
 # - The ISR build runs on all trigger events.
-# - The static build runs only on push and Pull Request target events.
+# - The static build runs only on push and PR target events.
 #
 # Permissions:
 # - Read permissions for contents and actions
@@ -42,8 +42,8 @@ permissions:
 jobs:
   build:
     # This job should run either on `merge_groups` or `push` events or on a `pull_request_target` event with a `labeled`
-    # action with a label named `github_actions:pull-request` since we want to run project builds on all these
-    # occasions. This allows us to be certain that the builds are passing.
+    # action with a label named `github_actions:pull-request` since we want to run project builds on these occasions.
+    # This allows us to be certain that the builds are passing.
     if: |
       (github.event_name == 'push' || github.event_name == 'merge_group') ||
       (github.event_name == 'pull_request_target' && github.event.label.name == 'github_actions:pull-request')
@@ -79,18 +79,18 @@ jobs:
       - name: Git Checkout
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
         with:
-          # Since we checkout the HEAD of the current branch, if the Pull Request comes from a fork we want to clone the
-          # fork's repository instead of the base repository. This allows us to have the correct history tree from the
-          # perspective of the Pull Request's branch. If the Workflow is running on `merge_group` or `push` events it
-          # falls back to the base repository.
+          # Since we checkout the HEAD of the current branch, if the PR comes from a fork we want to clone the fork's
+          # repository instead of the base repository. This allows us to have the correct history tree from the
+          # perspective of the PR's branch. If the Workflow is running on `merge_group` or `push` events it falls back
+          # to the base repository.
           repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
           # We checkout the branch itself instead of a specific SHA (commit) as we want to ensure that this Workflow is
-          # always running with the latest `ref` (changes) of the Pull Request's branch. If the Workflow is running on
+          # always running with the latest `ref` (changes) of the PR's branch. If the Workflow is running on
           # `merge_group` or `push` events it falls back to `github.ref`, which will often be `main` or the merge_group
           # `ref`.
           ref: ${{ github.event.pull_request.head.ref || github.ref }}
           # We only need to fetch the last commit from the head_ref since we're not using the `--filter` operation from
-          # turborepo. We don't use the `--filter` as we always want to force builds, regardless of having changes or
+          # Turborepo. We don't use the `--filter` as we always want to force builds, regardless of having changes or
           # not. This ensures that our bundle analysis script always runs and that Next.js is building regardless of
           # there being code changes or not.
           fetch-depth: 1
@@ -105,7 +105,7 @@ jobs:
       - name: Install npm Packages
         # We want to avoid having npm run the audit step and funding messages in a CI environment. We also use `npm i`
         # instead of `npm ci` so that the `node_modules/.cache` folder doesn't get deleted. We also use `--omit=dev` to
-        # avoid installing devDependencies, as we don't need them during the build step.
+        # avoid installing `devDependencies`, as we don't need them during the build step.
         run: npm i --no-audit --no-fund --userconfig=/dev/null --omit=dev
 
       - name: Build Next.js (ISR)
@@ -119,7 +119,7 @@ jobs:
           NODE_OPTIONS: '--max_old_space_size=4096'
 
       - name: Build Next.js (Static)
-        # We only run full static builds within Pull Requests, as they're not needed on `merge_group` or `push` events.
+        # We only run full static builds within PRs, as they're not needed on `merge_group` or `push` events.
         if: |
           github.event_name == 'push' || github.event_name == 'pull_request_target'
         # We want to enforce that the actual `turbo@latest` package is used instead of a possible hijack from the user.

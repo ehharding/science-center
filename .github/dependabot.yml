@@ -65,7 +65,7 @@ updates:
           - 'prettier-plugin-tailwindcss'
           - 'tailwindcss'
     ignore:
-      # Manually update major versions of @types/node with the version specified within .nvmrc.
+      # Manually update major versions of `@types/node` with the version specified within `.nvmrc`.
       - dependency-name: '@types/node'
         update-types: ['version-update:semver-major']
     open-pull-requests-limit: 10

@@ -1,4 +1,4 @@
-# Website Development
+# Website development
 * @ehharding
 
 # Infrastructure
@@ -9,14 +9,14 @@
 next.config.mjs @ehharding
 next.dynamic.mjs @ehharding
 
-# Node.js Release Blog Posts
+# Science Center release blog posts
 /pages/en/blog/announcements @ehharding
 /pages/en/blog/release @ehharding
 
-# Package Ecosystem
+# Package ecosystem
 package.json @ehharding
 turbo.json @ehharding
 
-# Web Infrastructure
+# Web infrastructure
 redirects.json @ehharding
 site.json @ehharding
